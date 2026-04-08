@@ -1,0 +1,15 @@
+# dataset
+data/
+
+# models
+models/
+
+# python
+__pycache__/
+*.pyc
+
+# notebooks
+.ipynb_checkpoints/
+
+# mac
+.DS_Store
