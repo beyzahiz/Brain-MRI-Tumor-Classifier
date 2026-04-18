@@ -53,7 +53,7 @@ st.markdown("""
 
 @st.cache_resource
 def load_trained_model():
-    return tf.keras.models.load_model('mri_model.keras')
+    return tf.keras.models.load_model('models/mri_model.keras')
 
 def medical_preprocessing(img):
     # PIL'den OpenCV formatına güvenli geçiş
