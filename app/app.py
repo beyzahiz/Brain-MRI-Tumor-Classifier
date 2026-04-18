@@ -1,6 +1,9 @@
-import streamlit as st
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 import tensorflow as tf
 import cv2
+import streamlit as st
 import numpy as np
 from PIL import Image
 import time
