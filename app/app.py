@@ -53,10 +53,12 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # FONKSİYONLAR 
+from huggingface_hub import hf_hub_download
 
 @st.cache_resource
 def load_trained_model():
-    return tf.keras.models.load_model('models/mri_model.keras')
+    model_path = hf_hub_download(repo_id="beyzahiz/brain-mri-tumor-classification", filename="mri_model.keras")
+    return tf.keras.models.load_model(model_path)
 
 def medical_preprocessing(img):
     # PIL'den OpenCV formatına güvenli geçiş
