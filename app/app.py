@@ -106,7 +106,6 @@ def make_gradcam_heatmap(img_array, model, last_conv_layer_name="block7a_project
 
 # Sidebar Tasarımı
 with st.sidebar:
-    st.image("https://cdn-icons-png.flaticon.com/512/2491/2491214.png", width=80)
     st.title("BrainScan AI")
     st.markdown("---")
     st.info("Bu sistem, **EfficientNetB0** derin öğrenme mimarisini kullanarak MRI görüntülerinde tümör tespiti ve lokalizasyonu yapar.")
@@ -117,7 +116,7 @@ with st.sidebar:
 model = load_trained_model()
 classes = ['Glioma', 'Meningioma', 'No Tumor', 'Pituitary']
 
-st.markdown("# 🧠 Beyin MRI Tümör Analiz Paneli")
+st.markdown("# Beyin MRI Tümör Analiz Paneli")
 st.write("Lütfen sistemin analiz etmesi için sol taraftan bir MRI dosyası seçin.")
 
 if uploaded_file is not None:
@@ -129,7 +128,7 @@ if uploaded_file is not None:
         st.image(image, use_column_width=True)
 
     if st.button(" Analizi Başlat ve Lokalize Et "):
-        with st.spinner('Yapay zeka katmanları analiz ediliyor. Lütfen bekleyiniz.'):
+        with st.spinner('Yapay zeka görüntüyü analiz ediyor. Lütfen bekleyiniz.'):
             time.sleep(1) # Kullanıcı deneyimi için kısa bir bekleme
             
             # 1. Ön İşleme
@@ -153,7 +152,7 @@ if uploaded_file is not None:
             superimposed_img = cv2.addWeighted(img_cv, 0.6, heatmap_color, 0.4, 0)
             
             with col2:
-                st.subheader("📍 Grad-CAM Lokalizasyonu")
+                st.subheader(" Grad-CAM Lokalizasyonu")
                 st.image(cv2.cvtColor(superimposed_img, cv2.COLOR_BGR2RGB), use_column_width=True)
             
             # SONUÇ PANELİ (Metric Kartları) 
